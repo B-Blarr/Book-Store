@@ -1,9 +1,5 @@
 
 const refArticle = document.getElementById("book-article");
-let nameRef = "";
-let authorRef = "";
-
-
 let currentIndex = 0;
 
 function renderBook() {
@@ -11,7 +7,7 @@ function renderBook() {
 renderArticle()
 renderName();
 renderAuthor();
-
+publishedYear();
 
 
 
@@ -46,11 +42,11 @@ function getHtmlTemplate(i) {
               </tr>
               <tr>
                 <td>Erscheinungsjahr</td>
-                <td id="published-year"></td>
+                <td class="published-year"></td>
               </tr>
               <tr>
                 <td>Genre</td>
-                <td id="genre"></td>
+                <td class="genre"></td>
               </tr>
             </table>
             <span id="likes-counter"></span>
@@ -73,7 +69,7 @@ function getHtmlTemplate(i) {
   
 
 function renderName() {
-     nameRef = document.getElementsByClassName("book-headline");
+    let nameRef = document.getElementsByClassName("book-headline");
     for (let i = 0; i < books.length; i++) {
        nameRef[i].innerHTML += renderNameTemplate(i);
     }
@@ -90,7 +86,7 @@ genre();
 }
 
 function renderAuthor() {
-    authorRef = document.getElementsByClassName("author");
+   let authorRef = document.getElementsByClassName("author");
     for (let i = 0; i < books.length; i++) {
        authorRef[i].innerHTML += renderAuthorTemplate(i);
     }
@@ -101,12 +97,22 @@ function renderAuthorTemplate(i) {
 }
 
 
-
-
-
 function publishedYear() {
-    
+  let publishedYearRef = document.getElementsByClassName("published-year");
+    for (let i = 0; i < books.length; i++) {
+       publishedYearRef[i].innerHTML += renderPublishedYearTemplate(i);
+    }
 }
+
+function renderPublishedYearTemplate(i) {
+    return `: ${books[i].publishedYear}`; 
+}
+
+
+
+
+
+
 
 function genre() {
     
