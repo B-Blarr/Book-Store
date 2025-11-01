@@ -4,57 +4,69 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Book Store</title>
-    <link rel="shortcut icon" href="./assets/icons/favicon.png" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="./assets/icons/favicon.png"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="./styles/style.css" />
     <link rel="stylesheet" href="./styles/standard.css" />
     <link rel="stylesheet" href="./styles/assets.css" />
-    <link rel="stylesheet" href="./styles/fonts.css">
+    <link rel="stylesheet" href="./styles/fonts.css" />
   </head>
-  <body>
+  <body onload="renderBook()">
     <div class="section-wrapper">
-<header class="main-header">
-    <img src="./assets/icons/book.png" alt="bookstore_logo">
-    <h1>Our book store</h1>
-</header>
-</div>
-<div class="main-wrapper">
-<main>
-    <article>
-        <header id="book-headline"></header>  <!--  headline-area-->
-        <aside></aside>                       <!--  book img-->
-        <section>                             <!--  content-area-->
-<div id="pice-tag"></div>
-<table></table>
-<span id="likes-counter"></span>
-<button id="like-button"></button>
-        </section>  
-        <section>                             <!--  comments-area-->
-<h3>Kommentare:</h3>
-<section id="comments">
-    <div id="comments-name"></div>
-    <div id="comments-text"></div>
-</section>
-<div>                                          <!--  Inputbereich-->
-<input id="comments-input" type="text">     
-<button id="comments-button"></button>
-</div>
-        </section>  
-
-    </article>
-</main>
-</div>
-<div class="section-wrapper">
-<footer></footer>
-</div>
-
-
-
-
-
-
-
-
-
+      <header class="main-header">
+        <img src="./assets/icons/book.png" alt="bookstore_logo" />
+        <h1>Our book store</h1>
+      </header>
+    </div>
+    <div class="main-wrapper">
+      <main>
+        <article id="book-article">
+          <!--  headline-area-->
+          <header id="book-headline"></header>
+          <!--  book img-->
+          <aside><img src="./assets/icons/favicon.png" alt="book" /></aside>
+          <!--  content-area-->
+          <section>
+            <div id="price-tag"></div>
+            <table>
+              <tr>
+                <td>Autor</td>
+                <td id="author"></td>
+              </tr>
+              <tr>
+                <td>Erscheinungsjahr</td>
+                <td id="published-year"></td>
+              </tr>
+              <tr>
+                <td>Genre</td>
+                <td id="genre"></td>
+              </tr>
+            </table>
+            <span id="likes-counter"></span>
+            <button id="like-button"></button>
+          </section>
+          <!--  comments-area-->
+          <section>
+            <h3>Kommentare:</h3>
+            <section id="comments">
+              <div id="comments-name"></div>
+              <div id="comments-text"></div>
+            </section>
+            <div>
+              <!--  Inputbereich-->
+              <input id="comments-input" type="text" />
+              <button id="comments-button"></button>
+            </div>
+          </section>
+        </article>
+      </main>
+    </div>
+    <div class="section-wrapper">
+      <footer></footer>
+    </div>
 
     <script src="./scripts/objects.js"></script>
     <script src="./scripts/script.js"></script>
