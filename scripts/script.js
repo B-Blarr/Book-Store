@@ -150,7 +150,11 @@ function renderCommentsComment() {
 }
 
 function commentsCommentTemplate(i) {
-  return `: ${books[i].comments[0].comment}`;
+  if (books[i].comments[0] != undefined && books[i].comments[0].name != undefined) {
+    return `: ${books[i].comments[0].comment}`;
+ }else
+
+  return `${""}`;
 }
 
 
