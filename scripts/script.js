@@ -6,9 +6,9 @@ function renderBook() {
   renderName();
   renderTable();
   priceTag();
-likeCounter()
-renderLikeButton();
-  // render liked button und likes in content area
+  likeCounter();
+  renderLikeButton();
+
   // render comments in comment-area
 }
 function renderArticle() {
@@ -124,7 +124,7 @@ function priceTagTemplate(i) {
 }
 
 function likeCounter() {
-    let likeRef = document.getElementsByClassName("likes-counter");
+  let likeRef = document.getElementsByClassName("likes-counter");
   for (let i = 0; i < books.length; i++) {
     likeRef[i].innerHTML += likeCounterTemplate(i);
   }
@@ -135,49 +135,41 @@ function likeCounterTemplate(i) {
 }
 
 function renderLikeButton() {
-    let likeButtonRef = document.getElementsByClassName("like-button");
+  let likeButtonRef = document.getElementsByClassName("like-button");
   for (let i = 0; i < books.length; i++) {
     likeButtonRef[i].innerHTML += likeButtonTemplate(i);
   }
 }
 
 function likeButtonTemplate(i) {
-    if (books[i].liked == true){
-   return '<img src="./assets/icons/heart.png" alt="heart_icon">';
-} else
-{
+  if (books[i].liked == true) {
+    return '<img src="./assets/icons/heart.png" alt="heart_icon">';
+  } else {
     return '<img src="./assets/icons/heart2.png" alt="heart_icon">';
+  }
 }
-}
-
-
 
 function addLike(j) {
-    let addLikeRef = document.getElementsByClassName("like-button");
-    addLikeRef[j].innerHTML = changeLikeTemplate(j);
+  let addLikeRef = document.getElementsByClassName("like-button");
+  addLikeRef[j].innerHTML = changeLikeTemplate(j);
 
-    let likeCounterRef = document.getElementsByClassName("likes-counter");
-    likeCounterRef[j] = changeLikeCounterTemplate(j);
+  let actualLikesRef = document.getElementsByClassName("likes-counter");
+  let addedLikes = actualLikesRef[j].innerHTML;
+  if (books[j].liked == true) {
+    addedLikes++;
+    actualLikesRef[j].innerHTML = addedLikes;
+  } else if(books[j].liked == false) {
+    addedLikes--;
+    actualLikesRef[j].innerHTML = addedLikes;
+  }
 }
 
 function changeLikeTemplate(i) {
-    if (books[i].liked == true){
-        books[i].liked = false;
-   return '<img src="./assets/icons/heart2.png" alt="heart2_icon">';
-} else if  (books[i].liked == false)
-{ 
+  if (books[i].liked == true) {
+    books[i].liked = false;
+    return '<img src="./assets/icons/heart2.png" alt="heart2_icon">';
+  } else if (books[i].liked == false) {
     books[i].liked = true;
     return '<img src="./assets/icons/heart.png" alt="heart_icon">';
-}
-}
-
-function changeLikeCounterTemplate(i) {
-    if (books[i].liked == true){
-     return books[i].likes = i + 1;
-   
-} else if  (books[i].liked == false)
-{ 
-   return books[i].likes = i - 1;
-    
-}
+  }
 }
