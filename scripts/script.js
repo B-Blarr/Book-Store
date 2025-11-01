@@ -6,9 +6,7 @@ function renderBook() {
    
 renderArticle()
 renderName();
-renderAuthor();
-publishedYear();
-
+renderTable()
 
 
 // render table mit author, publishedYear und genre in content-area
@@ -82,7 +80,7 @@ function renderNameTemplate(i) {
 function renderTable(){
 renderAuthor();
 publishedYear();
-genre();
+bookGenre();
 }
 
 function renderAuthor() {
@@ -96,7 +94,6 @@ function renderAuthorTemplate(i) {
     return `: ${books[i].author}`; 
 }
 
-
 function publishedYear() {
   let publishedYearRef = document.getElementsByClassName("published-year");
     for (let i = 0; i < books.length; i++) {
@@ -108,12 +105,13 @@ function renderPublishedYearTemplate(i) {
     return `: ${books[i].publishedYear}`; 
 }
 
+function bookGenre() {
+    let genreRef = document.getElementsByClassName("genre");
+    for (let i = 0; i < books.length; i++) {
+       genreRef[i].innerHTML += bookGenreTemplate(i);
+    }
+}
 
-
-
-
-
-
-function genre() {
-    
+function bookGenreTemplate(i) {
+    return `: ${books[i].genre}`; 
 }
