@@ -8,8 +8,12 @@ function renderBook() {
   priceTag();
   likeCounter();
   renderLikeButton();
+  renderCommentsName();
+  renderCommentsComment();
 
-  // render comments in comment-area
+  // render comments and username in comment-area
+  // add username with input field
+  // add comments with input field
 }
 function renderArticle() {
   for (let i = 0; i < books.length; i++) {
@@ -51,8 +55,8 @@ function getHtmlTemplate(i) {
           <section>
             <h3>Kommentare:</h3>
             <section id="comments">
-              <div id="comments-name"></div>
-              <div id="comments-text"></div>
+              <div class="comments-name"></div>
+              <div class="comments-text"></div>
             </section>
             <div>
               <!--  Inputbereich-->
@@ -122,6 +126,37 @@ function priceTag() {
 function priceTagTemplate(i) {
   return `: ${books[i].price} €`;
 }
+
+function renderCommentsName() {
+  let commentsNameRef = document.getElementsByClassName("comments-name");
+  for (let i = 0; i < books.length; i++) {
+    commentsNameRef[i].innerHTML += commentsNameTemplate(i);
+  }
+}
+
+function commentsNameTemplate(i) {
+ if (books[i].comments[0] != undefined && books[i].comments[0].name != undefined) {
+    return `: ${books[i].comments[0].name}`;
+ }else
+
+  return `${""}`;
+}
+
+function renderCommentsComment() {
+    let commentsCommentRef = document.getElementsByClassName("comments-text");
+  for (let i = 0; i < books.length; i++) {
+    commentsCommentRef[i].innerHTML += commentsCommentTemplate(i);
+  }
+}
+
+function commentsCommentTemplate(i) {
+  return `: ${books[i].comments[0].comment}`;
+}
+
+
+
+
+
 
 function likeCounter() {
   let likeRef = document.getElementsByClassName("likes-counter");
