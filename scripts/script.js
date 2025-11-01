@@ -1,18 +1,22 @@
 
 const refArticle = document.getElementById("book-article");
 let nameRef = "";
+let authorRef = "";
+
+
 let currentIndex = 0;
 
 function renderBook() {
    
 renderArticle()
+renderName();
+renderAuthor();
 
 
 
 
-// renderName();
-// render name in die headline-area
 // render table mit author, publishedYear und genre in content-area
+
 // render price in contend area
 // render liked button und likes in content area
 // render comments in comment-area
@@ -23,10 +27,8 @@ function renderArticle() {
     
     for (let i = 0; i < books.length; i++) {
     refArticle.innerHTML += getHtmlTemplate(i); 
-    }
-    renderName();
+    }  
 }
-
 
 function getHtmlTemplate(i) {
     currentIndex = i;
@@ -40,7 +42,7 @@ function getHtmlTemplate(i) {
             <table>
               <tr>
                 <td>Autor</td>
-                <td id="author"></td>
+                <td class="author"></td>
               </tr>
               <tr>
                 <td>Erscheinungsjahr</td>
@@ -81,10 +83,31 @@ function renderNameTemplate(i) {
     return `<h2>${books[i].name}</h2>`; 
 }
 
+function renderTable(){
+renderAuthor();
+publishedYear();
+genre();
+}
+
+function renderAuthor() {
+    authorRef = document.getElementsByClassName("author");
+    for (let i = 0; i < books.length; i++) {
+       authorRef[i].innerHTML += renderAuthorTemplate(i);
+    }
+}
+
+function renderAuthorTemplate(i) {
+    return `: ${books[i].author}`; 
+}
 
 
 
-// for (let i = 0; i < library.sections.fiction.length; i++) {
-//     bookList = library.sections.fiction[i].book.title;
-//     console.log(bookList);
+
+
+function publishedYear() {
     
+}
+
+function genre() {
+    
+}
