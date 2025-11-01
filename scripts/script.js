@@ -6,12 +6,10 @@ function renderBook() {
    
 renderArticle()
 renderName();
-renderTable()
+renderTable();
+priceTag();
 
 
-// render table mit author, publishedYear und genre in content-area
-
-// render price in contend area
 // render liked button und likes in content area
 // render comments in comment-area
 
@@ -32,7 +30,7 @@ function getHtmlTemplate(i) {
           <aside><img src="./assets/icons/favicon.png" alt="book" /></aside>
           <!--  content-area-->
           <section>
-            <div id="price-tag"></div>
+            <div class="price-tag"></div>
             <table>
               <tr>
                 <td>Autor</td>
@@ -115,3 +113,16 @@ function bookGenre() {
 function bookGenreTemplate(i) {
     return `: ${books[i].genre}`; 
 }
+
+// ToDo Beim Preis Punkt durch Komma ersetzen
+function priceTag() {
+    let priceTagRef = document.getElementsByClassName("price-tag");
+    for (let i = 0; i < books.length; i++) {
+       priceTagRef[i].innerHTML += priceTagTemplate(i);
+    }
+}
+
+function priceTagTemplate(i) {
+    return `: ${books[i].price} €`; 
+}
+
