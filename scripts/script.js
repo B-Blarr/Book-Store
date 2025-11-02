@@ -62,7 +62,7 @@ function getHtmlTemplate(i) {
               <!--  Inputbereich-->
               <input class="username-input" type="text" placeholder="Dein Name:"/>
               <input class="comments-input" type="text" placeholder="Schreibe einen Kommentar:"/>
-              <button onclick=renderNewComment() class="comments-button"></button>
+              <button onclick=renderNewComment(${i}) class="comments-button"></button>
             </div>
           </section>`;
 }
@@ -218,9 +218,59 @@ function changeLikeTemplate(i) {
   }
 }
 
-function renderNewComment() {
+function renderNewComment(i) {
     
+    renderNewCommentName(i);
+    renderNewCommentComment(i);
     // Inputs aus Namensfeld und Kommentarfeld auslesen
     // Inputs in Kommentarspalte als Username und Kommentar einfügen 
 }
 
+function renderNewCommentName(i) {
+    let newCommentsName = document.getElementsByClassName("username-input");
+    let newCommentsComment = document.getElementsByClassName("comments-input");
+
+    let updatedCommentName = newCommentsName[i].value;
+    let updatedCommentsComment = newCommentsComment[i].value;
+
+    books[i].comments.push({name: updatedCommentName, comment: updatedCommentsComment});
+
+
+    renderCommentsName();
+  renderCommentsComment();
+    }
+
+
+//      updatedCommentName.push(name: "") = books[i].comments[0].name;
+// }
+
+
+
+function renderNewCommentComment(i) {
+    
+}
+
+
+
+// function newCommentNameTemplate(i) {
+//   return ` <li>(${i})</li>`;
+// }
+
+
+
+
+
+
+
+
+
+
+// function renderNewCommentName(i) {
+//     let newCommentName = document.getElementsByClassName("username-input");
+//     newCommentName[i].value = newCommentNameTemplate(i);
+// }
+
+
+// function newCommentNameTemplate(i) {
+//   return ` <li>(${i})</li>`;
+// }
