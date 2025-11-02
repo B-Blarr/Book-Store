@@ -11,7 +11,7 @@ function renderBook() {
   renderCommentsName();
   renderCommentsComment();
 
-  // render comments and username in comment-area
+  
   // add username with input field
   // add comments with input field
 }
@@ -54,14 +54,14 @@ function getHtmlTemplate(i) {
           <!--  comments-area-->
           <section>
             <h3>Kommentare:</h3>
-            <section id="comments">
+            <section="comments">
               <div class="comments-name"></div>
               <div class="comments-text"></div>
             </section>
             <div>
               <!--  Inputbereich-->
-              <input id="comments-input" type="text" />
-              <button id="comments-button"></button>
+              <input class="comments-input" type="text" placeholder="Schreibe einen Kommentar:"/>
+              <button class="comments-button"></button>
             </div>
           </section>`;
 }
@@ -135,8 +135,12 @@ function renderCommentsName() {
 }
 
 function commentsNameTemplate(i) {
+    let newCommentName = [];
  if (books[i].comments[0] != undefined && books[i].comments[0].name != undefined) {
-    return `: ${books[i].comments[0].name}`;
+    for (let j = 0; j < books[i].comments.length; j++) {
+    newCommentName += `<li>[${books[i].comments[j].name}]</li>`;
+    }
+return newCommentName;
  }else
 
   return `${""}`;
@@ -150,17 +154,17 @@ function renderCommentsComment() {
 }
 
 function commentsCommentTemplate(i) {
+    let newComment = [];
   if (books[i].comments[0] != undefined && books[i].comments[0].name != undefined) {
-    return `: ${books[i].comments[0].comment}`;
+for (let j = 0; j < books[i].comments.length; j++) {
+    newComment += `<li>${books[i].comments[j].comment}</li>`;
+                    // books[i].comments[j].comment
+}           
+    return newComment;
  }else
 
   return `${""}`;
 }
-
-
-
-
-
 
 function likeCounter() {
   let likeRef = document.getElementsByClassName("likes-counter");
