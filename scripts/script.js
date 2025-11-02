@@ -11,9 +11,6 @@ function renderBook() {
   renderCommentsName();
   renderCommentsComment();
 
-  
-  // add username with input field
-  // add comments with input field
 }
 function renderArticle() {
   for (let i = 0; i < books.length; i++) {
@@ -116,7 +113,7 @@ function bookGenreTemplate(i) {
   return `: ${books[i].genre}`;
 }
 
-// ToDo Beim Preis Punkt durch Komma ersetzen
+// ToDo Beim Preis Punkt durch Komma ersetzen und 2 Stellen hinterm Komma
 function priceTag() {
   let priceTagRef = document.getElementsByClassName("price-tag");
   for (let i = 0; i < books.length; i++) {
@@ -129,8 +126,10 @@ function priceTagTemplate(i) {
 }
 
 function renderCommentsName() {
-  let commentsNameRef = document.getElementsByClassName("comments-name");
+    
+ let commentsNameRef = document.getElementsByClassName("comments-name");
   for (let i = 0; i < books.length; i++) {
+    commentsNameRef[i].innerHTML = "";
     commentsNameRef[i].innerHTML += commentsNameTemplate(i);
   }
 }
@@ -148,8 +147,10 @@ return newCommentName;
 }
 
 function renderCommentsComment() {
-    let commentsCommentRef = document.getElementsByClassName("comments-text");
+   
+   let commentsCommentRef = document.getElementsByClassName("comments-text");
   for (let i = 0; i < books.length; i++) {
+    commentsCommentRef[i].innerHTML = "";
     commentsCommentRef[i].innerHTML += commentsCommentTemplate(i);
   }
 }
@@ -159,7 +160,7 @@ function commentsCommentTemplate(i) {
   if (books[i].comments[0] != undefined && books[i].comments[0].name != undefined) {
 for (let j = 0; j < books[i].comments.length; j++) {
     newComment += `<li>${books[i].comments[j].comment}</li>`;
-                    // books[i].comments[j].comment
+                    
 }           
     return newComment;
  }else
@@ -221,14 +222,14 @@ function changeLikeTemplate(i) {
 function renderNewComment(i) {
     
     renderNewCommentName(i);
-    renderNewCommentComment(i);
-    // Inputs aus Namensfeld und Kommentarfeld auslesen
-    // Inputs in Kommentarspalte als Username und Kommentar einfügen 
+    
+
 }
 
 function renderNewCommentName(i) {
-    let newCommentsName = document.getElementsByClassName("username-input");
-    let newCommentsComment = document.getElementsByClassName("comments-input");
+
+   let newCommentsName = document.getElementsByClassName("username-input");
+   let newCommentsComment = document.getElementsByClassName("comments-input");
 
     let updatedCommentName = newCommentsName[i].value;
     let updatedCommentsComment = newCommentsComment[i].value;
@@ -241,36 +242,6 @@ function renderNewCommentName(i) {
     }
 
 
-//      updatedCommentName.push(name: "") = books[i].comments[0].name;
-// }
 
-
-
-function renderNewCommentComment(i) {
     
-}
 
-
-
-// function newCommentNameTemplate(i) {
-//   return ` <li>(${i})</li>`;
-// }
-
-
-
-
-
-
-
-
-
-
-// function renderNewCommentName(i) {
-//     let newCommentName = document.getElementsByClassName("username-input");
-//     newCommentName[i].value = newCommentNameTemplate(i);
-// }
-
-
-// function newCommentNameTemplate(i) {
-//   return ` <li>(${i})</li>`;
-// }
