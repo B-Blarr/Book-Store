@@ -60,8 +60,9 @@ function getHtmlTemplate(i) {
             </section>
             <div>
               <!--  Inputbereich-->
+              <input class="username-input" type="text" placeholder="Dein Name:"/>
               <input class="comments-input" type="text" placeholder="Schreibe einen Kommentar:"/>
-              <button class="comments-button"></button>
+              <button onclick=renderNewComment() class="comments-button"></button>
             </div>
           </section>`;
 }
@@ -216,3 +217,10 @@ function changeLikeTemplate(i) {
     return '<img src="./assets/icons/heart.png" alt="heart_icon">';
   }
 }
+
+function renderNewComment() {
+    
+    // Inputs aus Namensfeld und Kommentarfeld auslesen
+    // Inputs in Kommentarspalte als Username und Kommentar einfügen 
+}
+
