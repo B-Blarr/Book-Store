@@ -43,7 +43,25 @@ h1{
     font-size: 48px;
 }
 
+article{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 64px;
+  flex: 1;
 
+}
+
+.book-area{
+  margin-bottom: 60px;
+  background-color: cornflowerblue;
+  flex: 1;
+  padding: 32px 32px;
+  margin-left: 64px;
+  margin-right: 64px;
+  max-width: 350px;
+  min-width: 320px;
+}
 
 
 

@@ -19,7 +19,8 @@ function renderArticle() {
 
 function getHtmlTemplate(i) {
   currentIndex = i;
-  return `<!--  headline-area-->
+  return `<section class="book-area">
+  <!--  headline-area-->
           <header class="book-headline"></header>
           <!--  book img-->
           <aside><img src="./assets/icons/favicon.png" alt="book" /></aside>
@@ -60,6 +61,7 @@ function getHtmlTemplate(i) {
               <input class="comments-input" type="text" placeholder="Schreibe einen Kommentar:"/>
               <button onclick=renderNewComment(${i}) class="comments-button"></button>
             </div>
+            </section>
           </section>`;
 }
 
