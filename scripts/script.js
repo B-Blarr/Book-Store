@@ -8,8 +8,7 @@ function renderBook() {
   priceTag();
   likeCounter();
   renderLikeButton();
-  renderCommentsName();
-  renderCommentsComment();
+  renderComments();
 }
 function renderArticle() {
   for (let i = 0; i < books.length; i++) {
@@ -22,8 +21,10 @@ function getHtmlTemplate(i) {
   return `<section class="book-area">
   <!--  headline-area-->
           <header class="book-headline"></header>
+          <div class="dividing-line"></div>
           <!--  book img-->
           <aside><img src="./assets/icons/favicon.png" alt="book" /></aside>
+          <div class="dividing-line"></div>
           <!--  content-area-->
           <section>
             <div class="price-button-area">
@@ -48,18 +49,28 @@ function getHtmlTemplate(i) {
               </tr>
             </table>
           </section>
+          <div class="dividing-line"></div>
           <!--  comments-area-->
-          <section>
+          <section class="comments-area">
             <h3>Kommentare:</h3>
-            <section="comments">
-              <div class="comments-name"></div>
-              <div class="comments-text"></div>
+            <section class="comments"> 
+            <table class="comments-table-${i}"> 
+            </table>
             </section>
-            <div>
+            <div class="input-area">
               <!--  Inputbereich-->
-              <input class="username-input" type="text" placeholder="Dein Name:"/>
-              <input class="comments-input" type="text" placeholder="Schreibe einen Kommentar:"/>
-              <button onclick=renderNewComment(${i}) class="comments-button"></button>
+            <form class="comment-name-form">
+              <label for="username-input">
+                <input type="text" maxlength="20" name="name" class="username-input" type="text" required placeholder="Dein Name:"/>
+              </label>  
+            </form>
+            <form class="comment-name-form">
+              <label for="comments-input">
+                <input type="message" maxlength="200" class="comments-input" type="text" required placeholder="Schreibe einen Kommentar:"/>
+              </label>  
+            </form>
+              
+              <button onclick=renderNewComment(${i}) class="comments-button"><img src="./assets/icons/send.png" alt="Submit_Button"></button>
             </div>
             </section>
           </section>`;
@@ -117,55 +128,35 @@ function bookGenreTemplate(i) {
 function priceTag() {
   let priceTagRef = document.getElementsByClassName("price-tag");
   for (let i = 0; i < books.length; i++) {
-    priceTagRef[i].innerHTML += priceTagTemplate(i).replaceAll('.', ',');
+    priceTagRef[i].innerHTML += priceTagTemplate(i).replaceAll(".", ",");
   }
 }
 
 function priceTagTemplate(i) {
   let newPrice = books[i].price.toFixed("2");
-  return `: ${newPrice} €`;
+  return `${newPrice} €`;
 }
 
-function renderCommentsName() {
-  let commentsNameRef = document.getElementsByClassName("comments-name");
+function renderComments() {
   for (let i = 0; i < books.length; i++) {
-    commentsNameRef[i].innerHTML = "";
-    commentsNameRef[i].innerHTML += commentsNameTemplate(i);
+    let tableRef = document.querySelector(`.comments-table-${i}`);
+    if (tableRef) {
+      tableRef.innerHTML = "";
+
+      for (let j = 0; j < books[i].comments.length; j++) {
+        tableRef.innerHTML += commentRowTemplate(i, j);
+      }
+    }
   }
 }
 
-function commentsNameTemplate(i) {
-  let newCommentName = [];
-  if (
-    books[i].comments[0] != undefined &&
-    books[i].comments[0].name != undefined
-  ) {
-    for (let j = 0; j < books[i].comments.length; j++) {
-      newCommentName += `<li>[${books[i].comments[j].name}]</li>`;
-    }
-    return newCommentName;
-  } else return `${""}`;
-}
+function commentRowTemplate(bookIndex, commentIndex) {
+  const commentData = books[bookIndex].comments[commentIndex];
+  const tableContent = `<strong>[${commentData.name}]</strong> :<br><p class="table-comment"> ${commentData.comment}</p>`;
 
-function renderCommentsComment() {
-  let commentsCommentRef = document.getElementsByClassName("comments-text");
-  for (let i = 0; i < books.length; i++) {
-    commentsCommentRef[i].innerHTML = "";
-    commentsCommentRef[i].innerHTML += commentsCommentTemplate(i);
-  }
-}
-
-function commentsCommentTemplate(i) {
-  let newComment = [];
-  if (
-    books[i].comments[0] != undefined &&
-    books[i].comments[0].name != undefined
-  ) {
-    for (let j = 0; j < books[i].comments.length; j++) {
-      newComment += `<li>${books[i].comments[j].comment}</li>`;
-    }
-    return newComment;
-  } else return `${""}`;
+  return `<tr class="comment-row">
+            <td class="comment-entry">${tableContent}</td>
+            </tr>`;
 }
 
 function likeCounter() {
@@ -220,19 +211,19 @@ function changeLikeTemplate(i) {
 }
 
 function renderNewComment(i) {
-  renderNewCommentName(i);
-}
-
-function renderNewCommentName(i) {
   let newCommentsName = document.getElementsByClassName("username-input");
   let newCommentsComment = document.getElementsByClassName("comments-input");
   let updatedCommentName = newCommentsName[i].value;
   let updatedCommentsComment = newCommentsComment[i].value;
+  if (updatedCommentsComment === "" || updatedCommentName === "") {
+    return;
+  }
   books[i].comments.push({
     name: updatedCommentName,
     comment: updatedCommentsComment,
   });
+  newCommentsName[i].value = "";
+  newCommentsComment[i].value = "";
 
-  renderCommentsName();
-  renderCommentsComment();
+  renderComments();
 }
