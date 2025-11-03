@@ -10,7 +10,6 @@ function renderBook() {
   renderLikeButton();
   renderCommentsName();
   renderCommentsComment();
-
 }
 function renderArticle() {
   for (let i = 0; i < books.length; i++) {
@@ -113,21 +112,20 @@ function bookGenreTemplate(i) {
   return `: ${books[i].genre}`;
 }
 
-// ToDo Beim Preis Punkt durch Komma ersetzen und 2 Stellen hinterm Komma
 function priceTag() {
   let priceTagRef = document.getElementsByClassName("price-tag");
   for (let i = 0; i < books.length; i++) {
-    priceTagRef[i].innerHTML += priceTagTemplate(i);
+    priceTagRef[i].innerHTML += priceTagTemplate(i).replaceAll('.', ',');
   }
 }
 
 function priceTagTemplate(i) {
-  return `: ${books[i].price} €`;
+  let newPrice = books[i].price.toFixed("2");
+  return `: ${newPrice} €`;
 }
 
 function renderCommentsName() {
-    
- let commentsNameRef = document.getElementsByClassName("comments-name");
+  let commentsNameRef = document.getElementsByClassName("comments-name");
   for (let i = 0; i < books.length; i++) {
     commentsNameRef[i].innerHTML = "";
     commentsNameRef[i].innerHTML += commentsNameTemplate(i);
@@ -135,20 +133,20 @@ function renderCommentsName() {
 }
 
 function commentsNameTemplate(i) {
-    let newCommentName = [];
- if (books[i].comments[0] != undefined && books[i].comments[0].name != undefined) {
+  let newCommentName = [];
+  if (
+    books[i].comments[0] != undefined &&
+    books[i].comments[0].name != undefined
+  ) {
     for (let j = 0; j < books[i].comments.length; j++) {
-    newCommentName += `<li>[${books[i].comments[j].name}]</li>`;
+      newCommentName += `<li>[${books[i].comments[j].name}]</li>`;
     }
-return newCommentName;
- }else
-
-  return `${""}`;
+    return newCommentName;
+  } else return `${""}`;
 }
 
 function renderCommentsComment() {
-   
-   let commentsCommentRef = document.getElementsByClassName("comments-text");
+  let commentsCommentRef = document.getElementsByClassName("comments-text");
   for (let i = 0; i < books.length; i++) {
     commentsCommentRef[i].innerHTML = "";
     commentsCommentRef[i].innerHTML += commentsCommentTemplate(i);
@@ -156,16 +154,16 @@ function renderCommentsComment() {
 }
 
 function commentsCommentTemplate(i) {
-    let newComment = [];
-  if (books[i].comments[0] != undefined && books[i].comments[0].name != undefined) {
-for (let j = 0; j < books[i].comments.length; j++) {
-    newComment += `<li>${books[i].comments[j].comment}</li>`;
-                    
-}           
+  let newComment = [];
+  if (
+    books[i].comments[0] != undefined &&
+    books[i].comments[0].name != undefined
+  ) {
+    for (let j = 0; j < books[i].comments.length; j++) {
+      newComment += `<li>${books[i].comments[j].comment}</li>`;
+    }
     return newComment;
- }else
-
-  return `${""}`;
+  } else return `${""}`;
 }
 
 function likeCounter() {
@@ -203,7 +201,7 @@ function addLike(j) {
   if (books[j].liked == true) {
     addedLikes++;
     actualLikesRef[j].innerHTML = addedLikes;
-  } else if(books[j].liked == false) {
+  } else if (books[j].liked == false) {
     addedLikes--;
     actualLikesRef[j].innerHTML = addedLikes;
   }
@@ -220,28 +218,19 @@ function changeLikeTemplate(i) {
 }
 
 function renderNewComment(i) {
-    
-    renderNewCommentName(i);
-    
-
+  renderNewCommentName(i);
 }
 
 function renderNewCommentName(i) {
+  let newCommentsName = document.getElementsByClassName("username-input");
+  let newCommentsComment = document.getElementsByClassName("comments-input");
+  let updatedCommentName = newCommentsName[i].value;
+  let updatedCommentsComment = newCommentsComment[i].value;
+  books[i].comments.push({
+    name: updatedCommentName,
+    comment: updatedCommentsComment,
+  });
 
-   let newCommentsName = document.getElementsByClassName("username-input");
-   let newCommentsComment = document.getElementsByClassName("comments-input");
-
-    let updatedCommentName = newCommentsName[i].value;
-    let updatedCommentsComment = newCommentsComment[i].value;
-
-    books[i].comments.push({name: updatedCommentName, comment: updatedCommentsComment});
-
-
-    renderCommentsName();
+  renderCommentsName();
   renderCommentsComment();
-    }
-
-
-
-    
-
+}
