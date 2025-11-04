@@ -59,6 +59,7 @@ function getHtmlTemplate(i) {
             </section>
             <div class="input-area">
               <!--  Inputbereich-->
+              <div class="input-fields">
             <form class="comment-name-form">
               <label for="username-input">
                 <input type="text" maxlength="20" name="name" class="username-input" type="text" required placeholder="Dein Name:"/>
@@ -66,11 +67,11 @@ function getHtmlTemplate(i) {
             </form>
             <form class="comment-name-form">
               <label for="comments-input">
-                <input type="message" maxlength="200" class="comments-input" type="text" required placeholder="Schreibe einen Kommentar:"/>
+                <input type="message" maxlength="200" class="comments-input" type="text" required placeholder="Dein Kommentar:"/>
               </label>  
             </form>
-              
-              <button onclick=renderNewComment(${i}) class="comments-button"><img src="./assets/icons/send.png" alt="Submit_Button"></button>
+              </div>
+              <button onclick=renderNewComment(${i}) class="comments-button"><img src="./assets/icons/submit-button.png" alt="Submit_Button"></button>
             </div>
             </section>
           </section>`;
