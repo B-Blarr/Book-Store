@@ -70,6 +70,8 @@ article {
   height: 750px;
 }
 
+/* Book Article */
+
 h2 {
   font-size: 28px;
   text-align: center;
@@ -111,6 +113,11 @@ aside {
 
 .like-button img {
   width: 32px;
+  transition: filter 0.2s ease-out;
+}
+
+.like-button:hover img {
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 1));
 }
 
 .like-area {
@@ -124,6 +131,8 @@ aside {
 table {
   padding-bottom: 16px;
 }
+
+/* Comments */
 
 h3 {
   padding-bottom: 4px;
@@ -161,7 +170,7 @@ h3 {
 
 .input-fields {
   display: flex;
-  gap: 0px;
+  gap: 4px;
   align-items: center;
 }
 
@@ -184,7 +193,13 @@ input {
   cursor: pointer;
 }
 
+.comments-button img:hover {
+  filter: drop-shadow(0 0 8px rgba(241, 122, 36, 0.9));
+}
+
 .comments-button img {
+  transition: filter 0.2s ease-out;
+  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.1));
   width: 56px;
 }
 
@@ -210,6 +225,8 @@ input {
   margin-top: auto;
 }
 
+/* Footer */
+
 footer {
   display: flex;
   align-items: center;
@@ -220,6 +237,8 @@ footer {
   margin-top: auto;
   background-color: #082129;
 }
+
+/* Media Querys */
 
 @media (max-width: 600px) {
   .dividing-area {
