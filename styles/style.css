@@ -1,35 +1,33 @@
 /* Wrapper */
 
-.section-wrapper{
-    display: flex;
+.section-wrapper {
+  display: flex;
   justify-content: center;
   width: 100%;
-background-color: #082129;
+  background-color: #082129;
 }
 
-.main-wrapper{
- display: flex;
+.main-wrapper {
+  display: flex;
   justify-content: center;
   flex: 1;
   width: 100%;
-background: linear-gradient(#05171e, #0b191f);
-
+  background: linear-gradient(#05171e, #0b191f);
 }
 
-.main-header{
+.main-header {
   display: flex;
   align-items: center;
   gap: 24px;
   width: 1440px;
   height: 120px;
-background-color: #082129;
-padding-left: 40px;
+  background-color: #082129;
+  padding-left: 40px;
 }
 
-.dividing-area{
+.dividing-area {
   width: 100%;
   height: 60px;
-
 }
 
 /* Main Area */
@@ -41,42 +39,38 @@ body {
   min-height: 100dvh;
 }
 
-header img{
-    width: 40px;
+header img {
+  width: 40px;
 }
 
-h1{
-    font-size: 48px;
+h1 {
+  font-size: 48px;
 }
 
-article{
+article {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  /* gap: 64px; */
   flex: 1;
-
 }
 
-.book-area{
+.book-area {
   margin-bottom: 60px;
   background-color: rgb(104, 48, 10);
-  /* evtl auskommentieren flex 1 */
-  flex: 1;
+  flex: 1 1 400px;
   padding: 0px 32px;
   padding-top: 32px;
   padding-bottom: 8px;
-  margin-left: 64px;
-  margin-right: 64px;
+  margin-left: 32px;
+  margin-right: 32px;
   border-radius: 16px;
-  /* evtl auskommentieren darunter  */
   display: flex;
   flex-direction: column;
-  max-width: 480px;
+  max-width: 560px;
   height: 750px;
 }
 
-h2{
+h2 {
   font-size: 28px;
   text-align: center;
   padding-bottom: 16px;
@@ -89,37 +83,37 @@ h2{
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
 }
 
-aside{
+aside {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 16px 0px;
 }
 
-.price-button-area{
+.price-button-area {
   display: flex;
   justify-content: space-between;
   padding-bottom: 16px;
 }
 
-.price-tag{
+.price-tag {
   display: flex;
   align-items: flex-end;
   font-size: 21px;
   color: rgb(241, 122, 36);
 }
 
-.like-button{
+.like-button {
   background-color: rgb(104, 48, 10);
   border: 0;
   cursor: pointer;
 }
 
-.like-button img{
+.like-button img {
   width: 32px;
 }
 
-.like-area{
+.like-area {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -127,15 +121,16 @@ aside{
   padding-top: 16px;
 }
 
-table{
+table {
   padding-bottom: 16px;
 }
 
-h3{
-  padding: 16px 0;
+h3 {
+  padding-bottom: 4px;
+  padding-top: 12px;
 }
 
-.comments{
+.comments {
   max-height: 225px;
   overflow-y: auto;
   width: 100%;
@@ -143,84 +138,79 @@ h3{
   padding-bottom: 8px;
 }
 
-
-
-.comments-area{
+.comments-area {
   display: flex;
-flex-direction: column;
-height: 100%;
+  flex-direction: column;
+  height: 100%;
 }
 
-.comment-entry{
+.comment-entry {
   padding-bottom: 16px;
 }
 
-.table-comment{
+.table-comment {
   padding-top: 6px;
 }
 
-.input-area{
+.input-area {
   display: flex;
   gap: 8px;
   margin-top: auto;
   justify-content: center;
 }
 
-.input-fields{
+.input-fields {
   display: flex;
-  gap: 8px;
+  gap: 0px;
+  align-items: center;
 }
 
-input{
-  margin-top: 4px;
+input {
+  margin-top: 2px;
   color: black;
   display: flex;
- height: 32px;
- border-radius: 8px;
- border: 2px solid black;
+  height: 32px;
+  border-radius: 8px;
+  border: 2px solid black;
 }
 
-.comments{
+.comments {
   height: 100%;
 }
 
-.comments-button{
+.comments-button {
   background-color: rgb(104, 48, 10);
   border: 0;
   cursor: pointer;
 }
 
-.comments-button img{
-  width: 40px;
+.comments-button img {
+  width: 56px;
 }
 
 .comments::-webkit-scrollbar {
-    width: 4px; 
+  width: 4px;
 }
 
 .comments::-webkit-scrollbar-track {
-    background: rgb(104, 48, 10); 
-    border-radius: 2px;
+  background: rgb(104, 48, 10);
+  border-radius: 2px;
 }
 
 .comments::-webkit-scrollbar-thumb {
-    /* 3. Der Daumen, der gezogen wird (nutze die Farbe des price-tag) */
-    background: rgb(241, 122, 36); 
-    border-radius: 2px;
+  background: rgb(241, 122, 36);
+  border-radius: 2px;
 }
 
-.dividing-line-comments{
- width: 100%;
+.dividing-line-comments {
+  width: 100%;
   height: 2px;
   background-color: #efefef;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
-margin-top: auto;
+  margin-top: auto;
 }
 
-
-
-
-footer{
+footer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -228,197 +218,230 @@ footer{
   max-width: 1440px;
   height: 120px;
   margin-top: auto;
-background-color: #082129;
-
+  background-color: #082129;
 }
 
-@media(max-width: 600px){
+@media (max-width: 600px) {
+  .dividing-area {
+    width: 100%;
+    height: 44px;
+  }
 
-.book-area{
-  padding: 0px 24px;
-  padding-top: 24px;
-  padding-bottom: 8px;
-  margin-left: 32px;
-  margin-right: 32px;
-  max-width: 400px;
-  height: 550px;
+  .book-area {
+    padding: 0px 20px;
+    padding-top: 20px;
+    padding-bottom: 0px;
+    margin-left: 32px;
+    margin-right: 32px;
+    max-width: 400px;
+    height: 550px;
+  }
+
+  .main-header {
+    gap: 24px;
+    width: 1440px;
+    height: 90px;
+    background-color: #082129;
+    padding-left: 20px;
+  }
+
+  h1 {
+    font-size: 42px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  aside {
+    padding: 12px 0px;
+  }
+
+  aside img {
+    width: 80px;
+  }
+
+  .price-tag {
+    font-size: 18px;
+  }
+
+  .price-button-area {
+    padding-bottom: 0px;
+    align-items: center;
+  }
+
+  .like-button img {
+    width: 28px;
+  }
+
+  .likes-counter {
+    font-size: 15px;
+  }
+
+  table {
+    padding-bottom: 12px;
+  }
+
+  h3 {
+    font-size: 16px;
+    padding: 10px 0;
+  }
+
+  .comments {
+    max-height: 132px;
+    padding-top: 0px;
+  }
+
+  .comment-entry {
+    padding-bottom: 8px;
+    font-size: 15px;
+  }
+
+  .input-area {
+    display: flex;
+    gap: 8px;
+    margin-top: auto;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .input-fields {
+    gap: 4px;
+    margin-bottom: 0;
+  }
+
+  input {
+    height: 28px;
+    width: 140px;
+  }
+
+  .comments-button {
+    margin-right: 0px;
+  }
+
+  .comments-button img {
+    width: 48px;
+  }
+
+  footer {
+    height: 90px;
+  }
 }
 
-.main-header{
-  gap: 24px;
-  width: 1440px;
-  height: 90px;
-background-color: #082129;
-padding-left: 20px;
-}
+@media (max-width: 475px) {
+  h1 {
+    font-size: 32px;
+  }
 
-h1{
-  font-size: 42px;
-}
+  .book-area {
+    padding: 0px 0px;
+    padding-top: 12px;
+    padding-bottom: 2px;
+    margin-left: 24px;
+    margin-right: 24px;
+    max-width: 240px;
+    height: 500px;
+  }
 
-h2{
-  font-size: 26px;
-}
+  h2 {
+    font-size: 21px;
+    padding-bottom: 8px;
+  }
 
-aside{
-  padding: 12px 0px;
-}
+  .dividing-line {
+    margin: 6px 0;
+  }
 
-aside img{
-width: 90px;
-}
+  aside {
+    padding: 0px 0px;
+  }
 
-.price-tag{
-  font-size: 18px;
-}
+  aside img {
+    width: 60px;
+  }
 
-.like-button img{
-  width: 28px;
-}
+  .price-button-area {
+    padding-bottom: 8px;
+    align-items: center;
+  }
 
-.likes-counter{
-  font-size: 15px;
-}
+  .price-tag {
+    font-size: 16px;
+    padding-left: 4px;
+  }
 
-table{
-  padding-bottom: 12px;
-}
+  .like-area {
+    gap: 4px;
+    padding-top: 0px;
+  }
 
-h3{
-  padding: 12px 0;
-}
+  .like-button img {
+    width: 24px;
+  }
 
-.comments{
-  max-height: 120px;
-  padding-top: 0px;
-}
+  .content {
+    padding-left: 4px;
+  }
 
-.comment-entry{
-  padding-bottom: 8px;
-  font-size: 16px;
-}
+  table {
+    padding-bottom: 4px;
+  }
 
-footer{
-  height: 90px;
-}
-}
+  td {
+    font-size: 15px;
+  }
 
-@media(max-width: 475px){
+  h3 {
+    font-size: 16px;
+    padding: 4px 0;
+    padding-left: 6px;
+  }
 
-  h1{
-  font-size: 32px;
-}
+  .comments {
+    max-height: 124px;
+    padding-left: 4px;
+  }
 
-.book-area{
-  padding: 0px 0px;
-  padding-top: 12px;
-  padding-bottom: 2px;
-  margin-left: 24px;
-  margin-right: 24px;
-  max-width: 240px;
-  height: 500px;
-}
+  .comment-entry {
+    padding-bottom: 8px;
+    font-size: 14px;
+  }
 
-h2{
-  font-size: 21px;
-}
+  .input-area {
+    gap: 0px;
+    justify-content: space-between;
+  }
 
-.dividing-line {
- margin: 4px 0;
-}
+  .input-fields {
+    flex-direction: column;
+    gap: 0px;
+    padding-left: 14px;
+    margin-bottom: 2px;
+  }
 
-aside{
-  padding: 0px 0px;
-}
+  input {
+    height: 24px;
+  }
 
-aside img{
-width: 60px;
-}
+  .comments-button {
+    margin-right: 24px;
+  }
 
-.price-button-area{
-  padding-bottom: 8px;
-  align-items: center;
-}
+  .comments-button img {
+    width: 48px;
+  }
 
-.price-tag{
-  font-size: 16px;
-  padding-left: 4px;
-}
+  .comments::-webkit-scrollbar {
+    width: 4px;
+  }
 
-.like-area{
-  gap: 4px;
-  padding-top: 0px;
-}
-
-.like-button img{
-  width: 24px;
-}
-
-.content{
-  padding-left: 4px;
-}
-
-table{
-  padding-bottom: 4px;
-}
-
-td{
-  font-size: 15px;
-}
-
-h3{
-  font-size: 16px;
-  padding: 4px 0;
-  padding-left: 6px;
-}
-
-.comments{
-  max-height: 124px;
-  padding-left: 4px;
-}
-
-.comment-entry{
-  padding-bottom: 8px;
-  font-size: 14px;
-}
-
-.input-area{
-  gap: 0px;
-  justify-content: space-between;
-}
-
-.input-fields{
-  flex-direction: column;
-  gap: 0px;
-  padding-left: 14px;
-}
-
-input{
- height: 24px;
-}
-
-.comments-button{
-  margin-right: 24px;
-}
-
-.comments-button img{
-  width: 48px;
-}
-
-.comments::-webkit-scrollbar {
-    /* 1. DIE BREITE AUF EINEN KLEINEREN WERT SETZEN (z.B. 4px) */
-    width: 4px; 
-}
-
-.comments::-webkit-scrollbar-track {
-    /* 2. Hintergrund/Schiene (nutze die Farbe des book-area-Hintergrunds) */
-    background: rgb(104, 48, 10); 
+  .comments::-webkit-scrollbar-track {
+    background: rgb(104, 48, 10);
     border-radius: 2px;
-}
+  }
 
-.comments::-webkit-scrollbar-thumb {
-    /* 3. Der Daumen, der gezogen wird (nutze die Farbe des price-tag) */
-    background: rgb(241, 122, 36); 
+  .comments::-webkit-scrollbar-thumb {
+    background: rgb(241, 122, 36);
     border-radius: 2px;
-}
+  }
 }

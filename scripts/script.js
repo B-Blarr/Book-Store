@@ -19,13 +19,10 @@ function renderArticle() {
 function getHtmlTemplate(i) {
   currentIndex = i;
   return `<section class="book-area">
-  <!--  headline-area-->
           <header class="book-headline"></header>
           <div class="dividing-line"></div>
-          <!--  book img-->
           <aside><img src="./assets/icons/favicon.png" alt="book" /></aside>
           <div class="dividing-line"></div>
-          <!--  content-area-->
           <section class="content">
             <div class="price-button-area">
                 <div class="price-tag"></div>
@@ -50,7 +47,6 @@ function getHtmlTemplate(i) {
             </table>
           </section>
           <div class="dividing-line"></div>
-          <!--  comments-area-->
           <section class="comments-area">
             <h3>Kommentare:</h3>
             <section class="comments"> 
@@ -59,7 +55,6 @@ function getHtmlTemplate(i) {
             </section>
             <div class="dividing-line-comments"></div>
             <div class="input-area">
-              <!--  Inputbereich-->
               <div class="input-fields">
             <form class="comment-name-form">
               <label for="username-input">
