@@ -1,6 +1,9 @@
 const REF_ARTICLE = document.getElementById("book-article");
 
+
 function renderBook() {
+  
+  getFromLocalStorage();
   renderArticle();
   renderName();
   renderTable();
@@ -108,8 +111,34 @@ function addLike(j) {
   }
 }
 
-function renderNewComment(i) {
-  let newCommentsName = document.getElementsByClassName("username-input");
+// function renderNewComment(i) {
+//   let newCommentsName = document.getElementsByClassName("username-input");
+//   let newCommentsComment = document.getElementsByClassName("comments-input");
+//   let updatedCommentName = newCommentsName[i].value;
+//   let updatedCommentsComment = newCommentsComment[i].value;
+//   if (updatedCommentsComment === "" || updatedCommentName === "") {
+//     return;
+//   }
+//   books[i].comments.push({
+//     name: updatedCommentName,
+//     comment: updatedCommentsComment,
+//   });
+
+//  saveToLocalStorage();
+//   renderComments();
+//     newCommentsName[i].value = "";
+//   newCommentsComment[i].value = "";
+// }
+
+
+// daten müssen ins array geladen werden
+// Im local storage gespeichert werden
+// aus dem local storage geladen werden
+
+// Ausgeführt durch onclick des buttons
+
+function saveData(i) {
+   let newCommentsName = document.getElementsByClassName("username-input");
   let newCommentsComment = document.getElementsByClassName("comments-input");
   let updatedCommentName = newCommentsName[i].value;
   let updatedCommentsComment = newCommentsComment[i].value;
@@ -120,8 +149,24 @@ function renderNewComment(i) {
     name: updatedCommentName,
     comment: updatedCommentsComment,
   });
+  
+  saveToLocalStorage();
+  renderComments();
   newCommentsName[i].value = "";
   newCommentsComment[i].value = "";
+}
 
-  renderComments();
+function saveToLocalStorage() {
+  let booksString = JSON.stringify(books);
+  localStorage.setItem("allBooks", booksString);
+}
+
+function getFromLocalStorage() {
+  
+  const booksString = (localStorage.getItem("allBooks"));
+  if (booksString === null) {
+    return;
+  }else
+
+  books = JSON.parse(booksString);
 }
