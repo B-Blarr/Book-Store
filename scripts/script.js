@@ -26,7 +26,7 @@ function getHtmlTemplate(i) {
           <aside><img src="./assets/icons/favicon.png" alt="book" /></aside>
           <div class="dividing-line"></div>
           <!--  content-area-->
-          <section>
+          <section class="content">
             <div class="price-button-area">
                 <div class="price-tag"></div>
                 <div class="like-area">
@@ -57,6 +57,7 @@ function getHtmlTemplate(i) {
             <table class="comments-table-${i}"> 
             </table>
             </section>
+            <div class="dividing-line-comments"></div>
             <div class="input-area">
               <!--  Inputbereich-->
               <div class="input-fields">
