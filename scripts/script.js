@@ -3,7 +3,7 @@ const REF_ARTICLE = document.getElementById("book-article");
 function renderBook() {
   getFromLocalStorage();
   renderArticle();
-  renderName();
+  renderBookHeadline();
   renderTable();
   renderPriceTag();
   renderLikeCounter();
@@ -17,10 +17,10 @@ function renderArticle() {
   }
 }
 
-function renderName() {
+function renderBookHeadline() {
   let nameRef = document.getElementsByClassName("book-headline");
   for (let i = 0; i < books.length; i++) {
-    nameRef[i].innerHTML += renderNameTemplate(i);
+    nameRef[i].innerHTML += NameTemplate(i);
   }
 }
 
@@ -33,14 +33,14 @@ function renderTable() {
 function renderAuthor() {
   let authorRef = document.getElementsByClassName("author");
   for (let i = 0; i < books.length; i++) {
-    authorRef[i].innerHTML += renderAuthorTemplate(i);
+    authorRef[i].innerHTML += AuthorTemplate(i);
   }
 }
 
 function renderPublishedYear() {
   let publishedYearRef = document.getElementsByClassName("published-year");
   for (let i = 0; i < books.length; i++) {
-    publishedYearRef[i].innerHTML += renderPublishedYearTemplate(i);
+    publishedYearRef[i].innerHTML += PublishedYearTemplate(i);
   }
 }
 
@@ -72,8 +72,8 @@ function renderComments() {
 }
 
 function commentRowTemplate(bookIndex, commentIndex) {
-  const commentData = books[bookIndex].comments[commentIndex];
-  const tableContent = `<strong>[${commentData.name}]</strong> :<br><p class="table-comment"> ${commentData.comment}</p>`;
+  let commentData = books[bookIndex].comments[commentIndex];
+  let tableContent = `<strong>[${commentData.name}]</strong> :<br><p class="table-comment"> ${commentData.comment}</p>`;
 
   return `<tr class="comment-row">
             <td class="comment-entry">${tableContent}</td>
@@ -97,7 +97,6 @@ function renderLikeButton() {
 function addLike(j) {
   let addLikeRef = document.getElementsByClassName("like-button");
   addLikeRef[j].innerHTML = changeLikeTemplate(j);
-
   let actualLikesRef = document.getElementsByClassName("likes-counter");
   let addedLikes = actualLikesRef[j].innerHTML;
   if (books[j].liked == true) {
@@ -131,25 +130,13 @@ function saveComment(i) {
   newCommentsComment[i].value = "";
 }
 
-// function saveLike(i) {
-//     let newLike = document.getElementsByClassName("likes-counter");
-//     let newLikeButton = document.getElementsByClassName("like-button");
-//     let updatedLike = newLike[i].innerHTML;
-//     let updatedLikeButton = newLikeButton[i].innerHTML;
-
-//     books[i].push({likes: updatedLike});
-//     books[i].push({liked: updatedLikeButton});
-
-//      saveToLocalStorage();
-//   }
-
 function saveToLocalStorage() {
   let booksString = JSON.stringify(books);
   localStorage.setItem("allBooks", booksString);
 }
 
 function getFromLocalStorage() {
-  const booksString = localStorage.getItem("allBooks");
+  let booksString = localStorage.getItem("allBooks");
   if (booksString === null) {
     return;
   } else books = JSON.parse(booksString);

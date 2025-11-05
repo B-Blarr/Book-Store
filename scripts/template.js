@@ -55,15 +55,15 @@ function getHtmlTemplate(i) {
           </section>`;
 }
 
-function renderNameTemplate(i) {
+function NameTemplate(i) {
   return `<h2>${books[i].name}</h2>`;
 }
 
-function renderAuthorTemplate(i) {
+function AuthorTemplate(i) {
   return `: ${books[i].author}`;
 }
 
-function renderPublishedYearTemplate(i) {
+function PublishedYearTemplate(i) {
   return `: ${books[i].publishedYear}`;
 }
 

@@ -105,21 +105,6 @@ aside {
   color: rgb(241, 122, 36);
 }
 
-.like-button {
-  background-color: rgb(104, 48, 10);
-  border: 0;
-  cursor: pointer;
-}
-
-.like-button img {
-  width: 32px;
-  transition: filter 0.2s ease-out;
-}
-
-.like-button:hover img {
-  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 1));
-}
-
 .like-area {
   display: flex;
   justify-content: center;
@@ -174,33 +159,8 @@ h3 {
   align-items: center;
 }
 
-input {
-  margin-top: 2px;
-  color: black;
-  display: flex;
-  height: 32px;
-  border-radius: 8px;
-  border: 2px solid black;
-}
-
 .comments {
   height: 100%;
-}
-
-.comments-button {
-  background-color: rgb(104, 48, 10);
-  border: 0;
-  cursor: pointer;
-}
-
-.comments-button img:hover {
-  filter: drop-shadow(0 0 8px rgba(241, 122, 36, 0.9));
-}
-
-.comments-button img {
-  transition: filter 0.2s ease-out;
-  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.1));
-  width: 56px;
 }
 
 .comments::-webkit-scrollbar {
@@ -289,10 +249,6 @@ footer {
     align-items: center;
   }
 
-  .like-button img {
-    width: 28px;
-  }
-
   .likes-counter {
     font-size: 15px;
   }
@@ -327,19 +283,6 @@ footer {
   .input-fields {
     gap: 4px;
     margin-bottom: 0;
-  }
-
-  input {
-    height: 28px;
-    width: 140px;
-  }
-
-  .comments-button {
-    margin-right: 0px;
-  }
-
-  .comments-button img {
-    width: 48px;
   }
 
   footer {
@@ -394,10 +337,6 @@ footer {
     padding-top: 0px;
   }
 
-  .like-button img {
-    width: 24px;
-  }
-
   .content {
     padding-left: 4px;
   }
@@ -436,18 +375,6 @@ footer {
     gap: 0px;
     padding-left: 14px;
     margin-bottom: 2px;
-  }
-
-  input {
-    height: 24px;
-  }
-
-  .comments-button {
-    margin-right: 24px;
-  }
-
-  .comments-button img {
-    width: 48px;
   }
 
   .comments::-webkit-scrollbar {

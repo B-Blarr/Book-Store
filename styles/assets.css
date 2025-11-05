@@ -1,0 +1,75 @@
+.like-button {
+  background-color: rgb(104, 48, 10);
+  border: 0;
+  cursor: pointer;
+}
+
+.like-button img {
+  width: 32px;
+  transition: filter 0.2s ease-out;
+}
+
+.like-button:hover img {
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 1));
+}
+
+.comments-button {
+  background-color: rgb(104, 48, 10);
+  border: 0;
+  cursor: pointer;
+}
+
+.comments-button img:hover {
+  filter: drop-shadow(0 0 8px rgba(241, 122, 36, 0.9));
+}
+
+.comments-button img {
+  transition: filter 0.2s ease-out;
+  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.1));
+  width: 56px;
+}
+
+input {
+  margin-top: 2px;
+  color: black;
+  display: flex;
+  height: 32px;
+  border-radius: 8px;
+  border: 2px solid black;
+}
+
+@media (max-width: 600px) {
+  .like-button img {
+    width: 28px;
+  }
+
+  input {
+    height: 28px;
+    width: 140px;
+  }
+
+  .comments-button {
+    margin-right: 0px;
+  }
+
+  .comments-button img {
+    width: 48px;
+  }
+}
+
+@media (max-width: 475px) {
+  .like-button img {
+    width: 24px;
+  }
+  input {
+    height: 24px;
+  }
+
+  .comments-button {
+    margin-right: 24px;
+  }
+
+  .comments-button img {
+    width: 48px;
+  }
+}
