@@ -1,8 +1,6 @@
 const REF_ARTICLE = document.getElementById("book-article");
 
-
 function renderBook() {
-  
   getFromLocalStorage();
   renderArticle();
   renderName();
@@ -105,40 +103,17 @@ function addLike(j) {
   if (books[j].liked == true) {
     addedLikes++;
     actualLikesRef[j].innerHTML = addedLikes;
-  } else if (books[j].liked == false) {
+  } else {
     addedLikes--;
     actualLikesRef[j].innerHTML = addedLikes;
   }
+  books[j].likes = addedLikes;
+
+  saveToLocalStorage();
 }
 
-// function renderNewComment(i) {
-//   let newCommentsName = document.getElementsByClassName("username-input");
-//   let newCommentsComment = document.getElementsByClassName("comments-input");
-//   let updatedCommentName = newCommentsName[i].value;
-//   let updatedCommentsComment = newCommentsComment[i].value;
-//   if (updatedCommentsComment === "" || updatedCommentName === "") {
-//     return;
-//   }
-//   books[i].comments.push({
-//     name: updatedCommentName,
-//     comment: updatedCommentsComment,
-//   });
-
-//  saveToLocalStorage();
-//   renderComments();
-//     newCommentsName[i].value = "";
-//   newCommentsComment[i].value = "";
-// }
-
-
-// daten müssen ins array geladen werden
-// Im local storage gespeichert werden
-// aus dem local storage geladen werden
-
-// Ausgeführt durch onclick des buttons
-
-function saveData(i) {
-   let newCommentsName = document.getElementsByClassName("username-input");
+function saveComment(i) {
+  let newCommentsName = document.getElementsByClassName("username-input");
   let newCommentsComment = document.getElementsByClassName("comments-input");
   let updatedCommentName = newCommentsName[i].value;
   let updatedCommentsComment = newCommentsComment[i].value;
@@ -149,12 +124,24 @@ function saveData(i) {
     name: updatedCommentName,
     comment: updatedCommentsComment,
   });
-  
+
   saveToLocalStorage();
   renderComments();
   newCommentsName[i].value = "";
   newCommentsComment[i].value = "";
 }
+
+// function saveLike(i) {
+//     let newLike = document.getElementsByClassName("likes-counter");
+//     let newLikeButton = document.getElementsByClassName("like-button");
+//     let updatedLike = newLike[i].innerHTML;
+//     let updatedLikeButton = newLikeButton[i].innerHTML;
+
+//     books[i].push({likes: updatedLike});
+//     books[i].push({liked: updatedLikeButton});
+
+//      saveToLocalStorage();
+//   }
 
 function saveToLocalStorage() {
   let booksString = JSON.stringify(books);
@@ -162,11 +149,8 @@ function saveToLocalStorage() {
 }
 
 function getFromLocalStorage() {
-  
-  const booksString = (localStorage.getItem("allBooks"));
+  const booksString = localStorage.getItem("allBooks");
   if (booksString === null) {
     return;
-  }else
-
-  books = JSON.parse(booksString);
+  } else books = JSON.parse(booksString);
 }

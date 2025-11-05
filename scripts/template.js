@@ -49,7 +49,7 @@ function getHtmlTemplate(i) {
               </label>  
             </form>
               </div>
-              <button onclick=saveData(${i}) class="comments-button"><img src="./assets/icons/submit-button.png" alt="Submit_Button"></button>
+              <button onclick=saveComment(${i}) class="comments-button"><img src="./assets/icons/submit-button.png" alt="Submit_Button"></button>
             </div>
             </section>
           </section>`;
