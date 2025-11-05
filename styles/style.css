@@ -39,6 +39,10 @@ body {
   min-height: 100dvh;
 }
 
+main{
+  max-width: 1440px;
+}
+
 header img {
   width: 40px;
 }

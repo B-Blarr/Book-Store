@@ -1,5 +1,4 @@
 function getHtmlTemplate(i) {
-  currentIndex = i;
   return `<section class="book-area">
           <header class="book-headline"></header>
           <div class="dividing-line"></div>
@@ -96,4 +95,13 @@ function changeLikeTemplate(i) {
     books[i].liked = true;
     return '<img src="./assets/icons/heart.png" alt="heart_icon">';
   }
+}
+
+function commentRowTemplate(bookIndex, commentIndex) {
+  let commentData = books[bookIndex].comments[commentIndex];
+  let tableContent = `<strong>[${commentData.name}]</strong> :<br><p class="table-comment"> ${commentData.comment}</p>`;
+
+  return `<tr class="comment-row">
+            <td class="comment-entry">${tableContent}</td>
+            </tr>`;
 }

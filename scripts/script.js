@@ -71,15 +71,6 @@ function renderComments() {
   }
 }
 
-function commentRowTemplate(bookIndex, commentIndex) {
-  let commentData = books[bookIndex].comments[commentIndex];
-  let tableContent = `<strong>[${commentData.name}]</strong> :<br><p class="table-comment"> ${commentData.comment}</p>`;
-
-  return `<tr class="comment-row">
-            <td class="comment-entry">${tableContent}</td>
-            </tr>`;
-}
-
 function renderLikeCounter() {
   let likeRef = document.getElementsByClassName("likes-counter");
   for (let i = 0; i < books.length; i++) {
