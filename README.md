@@ -2,6 +2,8 @@
 
 A book catalogue app with likes and comments, built with vanilla JavaScript.
 
+👉 **[Open the App](https://benjaminblarr.dev/bookstore/)**
+
 ![Bücher Welt Preview](assets/preview.png)
 
 ## 📌 About
