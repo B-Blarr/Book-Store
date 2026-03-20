@@ -1,4 +1,4 @@
-# 📚 Bücher Welt
+# 📚 Book-Store
 
 A book catalogue app with likes and comments, built with vanilla JavaScript.
 
