@@ -1,21 +1,36 @@
-# 📚 Book-Store
+# Book-Store
 
-A book catalogue app with likes and comments, built with vanilla JavaScript.
+A book catalogue with likes and comments, built without any framework.
 
-👉 **[Open the App](https://benjaminblarr.de/bookstore/)**
+👉 **[Open the Book-Store](https://benjaminblarr.de/bookstore/)**
 
-![Bücher Welt Preview](assets/preview.png)
+![Book-Store Preview](assets/preview.png)
 
-## 📌 About
-Bücher Welt is a dynamic book catalogue that renders a large collection of books from a JavaScript data array. Users can like books and leave comments which are persisted via LocalStorage.
+## About
 
-## ✨ Features
-- Dynamic rendering of book catalogue from a data array
-- Like functionality per book
-- Comment function with LocalStorage persistence
-- Book details including author, release year and genre
+The catalogue is rendered from a JavaScript data array. Every book can be
+liked and commented on, and both survive a reload because they are stored in
+LocalStorage.
 
-## 🛠️ Technologies
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
+The data therefore lives in two places at once. Likes and comments are read
+back on load and merged with the book data, and the two have to stay in step,
+otherwise a comment ends up under the wrong book.
+
+## Features
+
+- Catalogue rendered dynamically from a data array
+- Like function per book
+- Comments, persisted in LocalStorage
+- Book details with author, year of release and genre
+
+## Built with
+
+<p align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" height="40" alt="html5 logo" />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="40" alt="css3 logo" />
+  <img width="12" />
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="javascript logo" />
+</p>
+
+Persistence through LocalStorage.
